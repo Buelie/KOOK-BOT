@@ -36,5 +36,6 @@ GameHL是由 [@陆御](https://github.com/Buelie/KOOK-BOT/edit/main/GameHL) 开�
 | 注销($) | 注销一个GHL账号 | everyone |
 | 经验($) | 查询账号经验 | everyone |
 | 抽奖($) | 抽奖 | everyone |
+| 探索($) | 探索 | everyone |
 | 增加经验($) | 增加账号经验 | ROOT |
 | 减少经验($) | 减少账号经验 | ROOT |
