@@ -37,3 +37,4 @@ GameHL是由 [@陆御](https://github.com/Buelie/KOOK-BOT/edit/main/GameHL) 开�
 | 经验($) | 查询账号经验 | everyone |
 | 抽奖($) | 抽奖 | everyone |
 | 增加经验($) | 增加账号经验 | ROOT |
+| 减少经验($) | 减少账号经验 | ROOT |
