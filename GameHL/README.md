@@ -2,7 +2,7 @@
 <img src="https://api.fishwo.com/badge/kook/KOOK机器人?radius=4">
 
 # GameHL简介
-GameHL是由 [@陆御](https://github.com/Buelie/KOOK-BOT/edit/main/GameHL) 开发的一个娱乐性机器人,如需获取ROOT权限请联系 [陆御#5627(KOOK)](https://github.com/Buelie/KOOK-BOT/edit/main/GameHL)
+GameHL是由 [@陆御](https://github.com/Buelie/KOOK-BOT/edit/main/GameHL) 开发的一个娱乐性机器人,如需获取ROOT权限请联系 [陆御#5627(KOOK)](https://kooktalk.top/95036697)
 
 # GameHL历史版本
 
@@ -32,8 +32,8 @@ GameHL是由 [@陆御](https://github.com/Buelie/KOOK-BOT/edit/main/GameHL) 开�
 | 命令(前缀) | 作用 | 权限 |
 | --- | --- | --- |
 | GameHL(/) | 获取帮助 | everyone |
-| GameHL(/) | 获取帮助 | everyone |
-| GameHL(/) | 获取帮助 | everyone |
-| GameHL(/) | 获取帮助 | everyone |
-| GameHL(/) | 获取帮助 | everyone |
-| GameHL(/) | 获取帮助 | everyone |
+| 注册($) | 注册一个GHL账户 | everyone |
+| 注销($) | 注销一个GHL账号 | everyone |
+| 经验($) | 查询账号经验 | everyone |
+| 抽奖($) | 抽奖 | everyone |
+| 增加经验($) | 增加账号经验 | ROOT |
