@@ -3,8 +3,6 @@ from khl.card import *
 import random
 import os
 import time
-import requests
-from bs4 import BeautifulSoup
 
 bot = Bot(token="1/MTM2OTk=/kqk/pdBPJwDb3DJv4SJfOA==") 
 
@@ -21,7 +19,8 @@ async def help(msg : Message): #注册/help命令函数
             Module.Context(Element.Text("由 (met)237938831(met) 开发,  在 [Github](https://github.com/Buelie/KOOK-BOT/blob/main/GameHL) 查看源码", type=Types.Text.KMD)),
             Module.Divider(),
             Module.Header('命令'),
-            Module.Section('/GameHL : 获取帮助\n$注册 : 注册一个GHL账户\n$注销 : 注销一个GHL账号\n$经验 : 查询账号经验\n$抽奖 : 抽奖'),
+            Module.Context(Element.Text("**`/GameHL` : 获取帮助\n`$注册` : 注册一个GHL账户\n`$注销` : 注销一个GHL账号\n`$经验` : 查询账号经验\n`$抽奖` : 抽奖**", type=Types.Text.KMD)),
+            Module.Section(''),
             Module.Divider(),
             color='#5A3BD7'
         )
@@ -84,8 +83,11 @@ async def cexp(msg : Message,name):
 
 @bot.command(name="探索",prefixes="$")
 async def cexp(msg : Message,world,name,user):
-    suc = ["成功","失败"]
-    Success = random.choice(suc)
+    Suc = random.randint(0,100)
+    if Suc >= 10:
+        Success = "成功"
+    elif Suc < 10:
+        Success = "失败"
     if world == "主世界":
         if name == "橡木林":
             if Success == "失败":
@@ -143,12 +145,50 @@ async def cexp(msg : Message,world,name,user):
                     Card(
                         Module.Header('探索 | 主世界'+name+'地区'),
                         Module.Divider(),
-                        Module.Section("玩家"+user+"探索沙漠失败,原因:经验值不足(>=10即可探索)"),
+                        Module.Section("玩家"+user+"探索沙漠失败,原因:经验值不足(经验值>=10即可探索)"),
                         Module.Divider(),
                         Module.Context(Element.Text("由 (met)237938831(met) 开发,  在 [Github](https://github.com/Buelie) 查看源码", type=Types.Text.KMD)),
                         color='#5A3BD7'
                     )
                 )
+    elif world == "下界":
+        if exp[user] >= 50:
+            if name == "荒地":
+                if Success == "失败":
+                    hep = CardMessage(
+                        Card(
+                            Module.Header('探索 | 下界'+name+'地区'),
+                            Module.Divider(),
+                            Module.Section("玩家"+user+"探索荒地"+Success),
+                            Module.Divider(),
+                            Module.Context(Element.Text("由 (met)237938831(met) 开发,  在 [Github](https://github.com/Buelie) 查看源码", type=Types.Text.KMD)),
+                            color='#5A3BD7'
+                        )
+                    )
+                elif Success == "成功":
+                    sl = random.randint(1,64)
+                    hep = CardMessage(
+                        Card(
+                            Module.Header('探索 | 下界'+name+'地区'),
+                            Module.Divider(),
+                            Module.Section("玩家"+user+"探索荒地"+Success+"\n获得了[岩浆*"+str(sl)+"桶]"),
+                            Module.Divider(),
+                            Module.Context(Element.Text("由 (met)237938831(met) 开发,  在 [Github](https://github.com/Buelie) 查看源码", type=Types.Text.KMD)),
+                            color='#5A3BD7'
+                        )
+                    )
+                    exp[user] += 5
+        elif exp[user] < 50:
+            hep = CardMessage(
+                Card(
+                    Module.Header('探索 | 下界'+name+'地区'),
+                    Module.Divider(),
+                    Module.Section("玩家"+user+"探索荒地失败,原因:经验值不足(经验值>=50即可探索)"),
+                    Module.Divider(),
+                    Module.Context(Element.Text("由 (met)237938831(met) 开发,  在 [Github](https://github.com/Buelie) 查看源码", type=Types.Text.KMD)),
+                    color='#5A3BD7'
+                )
+            )
     await msg.ctx.channel.send(hep)
 
 # 抽奖系统
