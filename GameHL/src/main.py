@@ -4,7 +4,7 @@ import random
 import os
 import time
 
-bot = Bot(token="1/MTM2OTk=/kqk/pdBPJwDb3DJv4SJfOA==") 
+bot = Bot(token="xxx") 
 
 print("机器人已成功启动")
 
