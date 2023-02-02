@@ -4,7 +4,7 @@ import random
 import os
 import time
 
-bot = Bot(token="1/MTM2OTk=/kqk/pdBPJwDb3DJv4SJfOA==") 
+bot = Bot(token="xxx") 
 
 print("机器人已成功启动")
 
@@ -33,7 +33,47 @@ async def help(msg : Message): #注册/help命令函数
 exp = {"root":"无限"}
 userk = {"root":"237938831"}
 
+# VIP系统
+
 vip = {"A-On1":"237938831"}
+@bot.command(name="VIP",prefixes="$")
+async def cexp(msg : Message,name,poss):
+    try:
+        if str(msg.author.id) == vip[poss]:
+            hep = CardMessage(
+                Card(
+                    Module.Header('查询 | 玩家'+name+'的个人信息'),
+                    Module.Divider(),
+                    Module.Section("玩家"+name+"身份为:VIP"),
+                    Module.Divider(),
+                    Module.Context(Element.Text("由 (met)237938831(met) 开发,  在 [Github](https://github.com/Buelie) 查看源码", type=Types.Text.KMD)),
+                    color='#5A3BD7'
+                )
+            )
+        elif poss == None:
+            hep = CardMessage(
+                Card(
+                    Module.Header('查询 | 玩家'+name+'的个人信息'),
+                    Module.Divider(),
+                    Module.Section("玩家"+name+"身份为:普通玩家"),
+                    Module.Divider(),
+                    Module.Context(Element.Text("由 (met)237938831(met) 开发,  在 [Github](https://github.com/Buelie) 查看源码", type=Types.Text.KMD)),
+                    color='#5A3BD7'
+                )
+            )
+    except:
+        hep = CardMessage(
+            Card(
+                Module.Header('查询 | 玩家'+name+'的个人信息'),
+                Module.Divider(),
+                Module.Section("玩家"+name+"身份为:普通玩家"),
+                Module.Divider(),
+                Module.Context(Element.Text("由 (met)237938831(met) 开发,  在 [Github](https://github.com/Buelie) 查看源码", type=Types.Text.KMD)),
+                color='#5A3BD7'
+            )
+        )
+    await msg.ctx.channel.send(hep)
+
 
 # 成就系统
 
@@ -90,6 +130,17 @@ async def reg(msg : Message,name,accomplishment,rot):
                         color='#5A3BD7'
                     )
                 )
+    else:
+        hep = CardMessage(
+            Card(
+                Module.Header('成就 | 激活'),
+                Module.Divider(),
+                Module.Section("未找到相关成就"),
+                Module.Divider(),
+                Module.Context(Element.Text("由 (met)237938831(met) 开发, 在 [Github](https://github.com/Buelie) 查看源码", type=Types.Text.KMD)),
+                color='#fff000'
+            )
+        )
     await msg.ctx.channel.send(hep)
 
 # GHL账号系统
